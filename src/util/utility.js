@@ -19,7 +19,11 @@ uv.util.getUniqueId = function () {
   return new Date().getTime();
 };
 
-uv.util.getMax = function (graphdef, classification) {
+uv.util.getMax = function (graphdef, config, classification) {
+  if (config.graph.max) {
+    return config.graph.max;
+  }
+
   switch (classification) {
     case 'stepup':
       return this.getStepMaxValue(graphdef);
@@ -77,7 +81,11 @@ uv.util.getWaterfallMaxValue = function(graphdef) {
   return d3.max(sumMap);
 };
 
-uv.util.getMin = function (graphdef, classification) {
+uv.util.getMin = function (graphdef, config, classification) {
+  if (config.graph.min) {
+    return config.graph.min;
+  }
+
   switch (classification) {
     case 'normal':
       return this.getMinValue(graphdef);

@@ -394,8 +394,8 @@ uv.Graph.prototype.drawHorizontalAxis = function () {
 
   self.axes.hor.line = self.panel.append('line')
                 .classed(uv.constants.classes.horaxis, true)
-                .attr('y1', self.config.graph.orientation === 'Horizontal' ? self.height() : self.axes.ver.scale(0))
-                .attr('y2', self.config.graph.orientation === 'Horizontal' ? self.height() : self.axes.ver.scale(0))
+                .attr('y1', self.config.graph.orientation === 'Horizontal' ? self.height() : self.axes.ver.scale(self.min()))
+                .attr('y2', self.config.graph.orientation === 'Horizontal' ? self.height() : self.axes.ver.scale(self.min()))
                 .attr('x1', '0')
                 .attr('x2', self.width())
                 .style('stroke', self.config.axis.strokecolor);
@@ -445,8 +445,8 @@ uv.Graph.prototype.drawVerticalAxis = function () {
 
   self.axes.ver.line = self.panel.append('line')
                 .classed(uv.constants.classes.veraxis, true)
-                .attr('x1', self.config.graph.orientation === 'Horizontal'? self.axes.hor.scale(0): 0)
-                .attr('x2', self.config.graph.orientation === 'Horizontal'? self.axes.hor.scale(0): 0)
+                .attr('x1', self.config.graph.orientation === 'Horizontal'? self.axes.hor.scale(self.min()): 0)
+                .attr('x2', self.config.graph.orientation === 'Horizontal'? self.axes.hor.scale(self.min()): 0)
                 .attr('y1', 0)
                 .attr('y2', self.height())
                 .style('stroke', self.config.axis.strokecolor);
@@ -720,7 +720,7 @@ uv.Graph.prototype.max = function () {
     return this.axes.meta.max;
   }
 
-  this.axes.meta.max = uv.util.getMax(this.graphdef, this.graphdef.stepup);
+  this.axes.meta.max = uv.util.getMax(this.graphdef, this.config, this.graphdef.stepup);
   return this;
 }
 
@@ -729,7 +729,7 @@ uv.Graph.prototype.min = function () {
     return this.axes.meta.min;
   }
 
-  this.axes.meta.min = uv.util.getMin(this.graphdef, this.graphdef.stepup);
+  this.axes.meta.min = uv.util.getMin(this.graphdef, this.config, this.graphdef.stepup);
   return this;
 }
 

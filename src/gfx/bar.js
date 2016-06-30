@@ -43,7 +43,7 @@ uv.BarGraph.prototype.drawHorizontalBars = function (idx) {
     .classed('cr-' + uv.util.formatClassName(self.categories[idx]), true)
     .attr('height', self.axes.ver.scale.rangeBand() / len)
     .attr('x', function (d) {
-      return (d.value < 0) ? (-self.axes.hor.scale(0)) : self.axes.hor.scale(0);
+      return (d.value < 0) ? (-self.axes.hor.scale(self.min())) : self.axes.hor.scale(self.min());
     })
     .attr('y', function (d) {return self.axes.ver.scale(d.name); })
     .attr('width', 0)
@@ -52,7 +52,7 @@ uv.BarGraph.prototype.drawHorizontalBars = function (idx) {
     .transition()
       .duration(self.config.effects.duration)
       .delay(function (d, i) { return i * self.config.effects.duration; })
-      .attr('width', function (d) { return self.axes.hor.scale(Math.abs(d.value)) - self.axes.hor.scale(0); })
+      .attr('width', function (d) { return self.axes.hor.scale(Math.abs(d.value)) - self.axes.hor.scale(self.min()); })
       .call(uv.util.endAll, function (d,i){
         d3.select(this.parentNode.parentNode).selectAll('rect').on('mouseover', uv.effects.bar.mouseover(self, idx));
         d3.select(this.parentNode.parentNode).selectAll('rect').on('mouseout', uv.effects.bar.mouseout(self, idx));
@@ -106,12 +106,12 @@ uv.BarGraph.prototype.drawVerticalBars = function (idx) {
       .attr('height', 0)
       .attr('width', self.axes.hor.scale.rangeBand() / len)
       .attr('x', function (d) { return self.axes.hor.scale(d.name); })
-      .attr('y', function (d) { return (d.value < 0? -1: 1) * (self.height() - self.axes.ver.scale(0)); })
+      .attr('y', function (d) { return (d.value < 0? -1: 1) * (self.height() - self.axes.ver.scale(self.min())); })
       .style('stroke', self.config.bar.strokecolor).style('fill', color)
       .transition()
         .duration(self.config.effects.duration)
         .delay(idx * self.config.effects.duration)
-        .attr('height', function (d) { return Math.abs(self.axes.ver.scale(0) - self.axes.ver.scale(d.value)); })
+        .attr('height', function (d) { return Math.abs(self.axes.ver.scale(self.min()) - self.axes.ver.scale(d.value)); })
         .call(uv.util.endAll, function (d,i){
           d3.select(this.parentNode.parentNode).selectAll('rect').on('mouseover', uv.effects.bar.mouseover(self, idx));
           d3.select(this.parentNode.parentNode).selectAll('rect').on('mouseout', uv.effects.bar.mouseout(self, idx));

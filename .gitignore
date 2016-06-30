@@ -5,3 +5,4 @@ build/*
 dist/*
 lib/*
 .DS_Store
+.idea

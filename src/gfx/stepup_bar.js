@@ -5,8 +5,8 @@ uv.StepUpBarGraph = function (graphdef, config) {
   this.bargroups = {};
 
   var idx, length = self.categories.length,
-    csum = self.labels.map(function (d) {return 0; }),
-    tsum = self.labels.map(function (d) {return 0; });
+    csum = self.labels.map(function (d) {return self.min(); }),
+    tsum = self.labels.map(function (d) {return self.min(); });
 
   self.axes[this.config.graph.orientation === 'Horizontal' ? 'ver' : 'hor'].scale.domain(this.labels);
 
@@ -35,15 +35,15 @@ uv.StepUpBarGraph.prototype.drawHorizontalBars = function (idx, csum, tsum) {
   bars.append('rect')
     .attr('height', self.axes.ver.scale.rangeBand() / len)
     .attr('width', 0)
-    .attr('transform', 
+    .attr('transform',
       function (d) {
       return (d.value < 0) ? 'scale(-1,1)': 'scale(1,1)';
     })
     .attr('x', function (d, i) {
-      if (d.resetSum === true) csum[i] = 0;
-      var value = self.axes.hor.scale(csum[i]);
+      if (d.resetSum === true) csum[i] = self.min();
+      var value = self.axes.hor.scale(csum[i]) - self.axes.hor.scale(self.min());
       csum[i] += d.value;
-      return d.value < 0 ? -value: value;
+      return d.value < self.min() ? -value: value;
     })
     .attr('y', function (d) {return self.axes.ver.scale(d.name); })
     .classed('cr-' + uv.util.formatClassName(self.categories[idx]), true)
@@ -52,7 +52,7 @@ uv.StepUpBarGraph.prototype.drawHorizontalBars = function (idx, csum, tsum) {
     .transition()
       .duration(self.config.effects.duration)
       .delay(idx * self.config.effects.duration)
-      .attr('width', function (d, i) { return Math.abs(self.axes.hor.scale(csum[i]) - self.axes.hor.scale(csum[i]-d.value)); })
+      .attr('width', function (d, i) { return Math.abs(self.axes.hor.scale(csum[i]) - self.axes.hor.scale(self.min()) - self.axes.hor.scale(csum[i] - d.value)); })
       .call(uv.util.endAll, function (d,i){
         d3.select(this.parentNode.parentNode).selectAll('rect').on('mouseover', uv.effects.bar.mouseover(self, idx));
         d3.select(this.parentNode.parentNode).selectAll('rect').on('mouseout', uv.effects.bar.mouseout(self, idx));
@@ -97,7 +97,7 @@ uv.StepUpBarGraph.prototype.drawVerticalBars = function (idx, csum, tsum) {
   bars.append('rect')
     .attr('height', 0)
     .attr('width', self.axes.hor.scale.rangeBand() / len)
-    .attr('transform', 
+    .attr('transform',
       function (d) {
       return (d.value < 0) ? 'scale(1,-1)': 'scale(1,1)';
     })

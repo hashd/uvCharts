@@ -76,7 +76,7 @@ uv.Test.prototype.getDataset = function () {
 uv.Test.getDataElement = function (label) {
   var self = this, dataElement = {};
   dataElement.name = label;
-  dataElement.value = uv.Test.getRandomInteger(1, 1000);
+  dataElement.value = uv.Test.getRandomInteger(35000, 40000);
   return dataElement;
 };
 
