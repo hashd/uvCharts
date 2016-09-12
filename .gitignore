@@ -2,6 +2,7 @@ node_modules/*
 bower_components/*
 components/*
 build/*
-dist/*
+dist/*.zip
 lib/*
 .DS_Store
+npm-debug.log

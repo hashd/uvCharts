@@ -1,6 +1,41 @@
 {
   "name": "uvCharts",
-  "version": "1.1.2",
+  "version": "1.1.5",
+  "description": "Easy yet powerful JavaScript Charting library built using d3.js",
+  "keywords": ["charts", "d3", "api", "easy", "robust", "configurable", "bar", "area", "pie", "donut", "waterfall", "column", "percent", "line", "chart"],
+  "homepage": "https://imaginea.github.io/uvCharts",
+  "bugs": {
+    "url": "https://github.com/imaginea/uvCharts/issues",
+    "email": "opensource@imaginea.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Kiran Danduprolu",
+    "email": "gitk@danduprolu.com",
+    "url": "http://kiran.danduprolu.com"
+  },
+  "contributors": [
+    {
+      "name": "Priyanka Dudani"
+    },
+    {
+      "name": "Madhur Shrimal"
+    },
+    {
+      "name": "Sanjay Pavan C"
+    },
+    {
+      "name": "Krishnamraj Goud"
+    },
+    {
+      "name": "Pankaj Kumar"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Imaginea/uvCharts.git"
+  },
+  "main": "dist/uvcharts.js",
   "devDependencies": {
     "del": "^1.2.0",
     "eclint": "^0.2.6",

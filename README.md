@@ -6,7 +6,7 @@ To learn more about uvCharts and how to use it, read the [wiki](http://www.githu
 
 Checkout [releases](http://www.github.com/Imaginea/uvCharts/releases) to get the latest release of uvCharts. The downloadable artifact will contain the minified and non-minified library file for you to use.
 
-### Current release: uvCharts-v1.1.0
+### Current release: uvCharts-v1.1.3
 
 Charts supported at the current moment are:
 
@@ -21,7 +21,7 @@ Charts supported at the current moment are:
 + Donut Chart
 + Line Chart
 + Waterfall Chart
-+ StepUp Waterfall Chart (**New** since 1.0.4)
++ StepUp Waterfall Chart (*New* since 1.0.4)
 + Polar Area chart
 
 All charts can be rendered either in horizontal or vertical orientation except for Pie, Donut, Polar Area.
@@ -49,20 +49,6 @@ Contributions in the form of Pull Requests, Issues and Feature requests are alwa
 
 You can read the developer guide [here](./readme/developer_guide.md) to get started on setting up the development environment and the source code hierarchy.
 
-##### Contributors
+##### [Contributors](./CONTRIBUTORS.md)
 
-- Kiran Danduprolu (@hashd)
-- Sanjay Pavan (@sanjaypavan)
-- Priyanka Dudani (@priyankadudani)
-- Madhur Shrimal (@shrimalmadhur)
-- Krishnamraj Goud (@ksnov)
-- Pankaj Kumar (@pankajkumar005)
-
-##### Designers
-
-- Paridhi Verma (@paridhiv)
-- Kiran Kumar G
-- Noorul Ameen
-
-##### Licensed under MIT License
-Find full text [here](https://github.com/Imaginea/uvCharts/blob/master/LICENSE)
+##### [MIT License](./LICENSE.md)
