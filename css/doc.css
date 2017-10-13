@@ -155,8 +155,6 @@ div.group-desc {
 }
 
 .code-ex {
-	border-radius: 4px;
-	padding: 4px 10px;
 	font-family: Consolas, Monaco, "Ubuntu Mono","Droid Sans Mono";
 	background-color: rgba(26, 153, 170, 0.13);
 	margin: 10px 0;
@@ -168,6 +166,9 @@ pre {
 	tab-size: 4;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
+	padding: 12px 24px;
+  border-radius: 2px;
+  box-shadow: 0 0 4px #aaa inset;
 }
 
 .group-content {
