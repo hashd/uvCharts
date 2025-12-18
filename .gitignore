@@ -1,8 +1,59 @@
-node_modules/*
-bower_components/*
-components/*
-build/*
-dist/*.zip
-lib/*
+# Dependencies
+node_modules/
+bower_components/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Coverage
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS
 .DS_Store
-npm-debug.log
+Thumbs.db
+*.orig
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+*.local
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temp files
+tmp/
+temp/
+*.tmp

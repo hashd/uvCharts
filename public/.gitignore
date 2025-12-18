@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+*.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

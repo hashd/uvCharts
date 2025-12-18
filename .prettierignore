@@ -1,0 +1,7 @@
+dist
+node_modules
+coverage
+build
+bower_components
+src/legacy
+*.log
